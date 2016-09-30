@@ -23,15 +23,12 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    record.user == user
   end
+  alias destroy? update?
 
   def edit?
     update?
-  end
-
-  def destroy?
-    false
   end
 
   def scope
