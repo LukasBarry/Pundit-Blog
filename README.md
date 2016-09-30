@@ -1,24 +1,17 @@
-# README
+# PUNDIT BLOG
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple blog app I am using to test the gem Pundit on my system
 
-Things you may want to cover:
+* Ruby version - 2.3.0
 
-* Ruby version
-
-* System dependencies
+* System dependencies - None
 
 * Configuration
 
-* Database creation
+* Database creation - PostgreSQL Database
 
-* Database initialization
+* Database initialization - rake db:create
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 * ...

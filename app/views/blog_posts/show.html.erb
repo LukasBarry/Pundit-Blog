@@ -18,8 +18,12 @@
     <div class="panel-body">
       <p><strong><%= comment.user.name %></strong> said at <span class="posted-at"><%= comment.created_at.strftime('%m/%d/%Y %H:%M:%S') %></span>: </p>
       <p><%= comment.comment_entry %></p>
+      <% if policy(comment).update? %>
       <%= link_to "Edit Comment", edit_blog_post_comment_path(@blog_post, comment), class: "btn btn-primary" %>
+      <% end %>
+      <% if policy(comment).destroy? %>
       <%= link_to 'Destroy Comment', [comment.blog_post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+      <% end %>
     </div>
     <% end %>
 </div>

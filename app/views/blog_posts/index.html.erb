@@ -13,8 +13,12 @@
         </div>
         <div class="panel panel-footer">
           <%= link_to "Show", blog_post_path(blog), class: "btn btn-primary" %>
+          <% if policy(blog).update? %>
           <%= link_to "Edit", edit_blog_post_path(blog), class: "btn btn-primary" %>
+          <% end %>
+          <% if policy(blog).destroy? %>
           <%= link_to "Delete", blog, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-primary" %><br /><br />
+          <% end %><br /><br />
           <p>Has <%= pluralize(blog.comments.count, "comment") %></p>
         </div>
       </div>
