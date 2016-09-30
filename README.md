@@ -1,5 +1,7 @@
 # PUNDIT BLOG
 
+[![Code Climate](https://codeclimate.com/github/LukasBarry/Pundit-Blog/badges/gpa.svg)](https://codeclimate.com/github/LukasBarry/Pundit-Blog)
+
 This is a simple blog app I am using to test the gem Pundit on my system
 
 * Ruby version - 2.3.0
