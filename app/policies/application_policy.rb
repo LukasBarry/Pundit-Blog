@@ -26,10 +26,7 @@ class ApplicationPolicy
     record.user == user
   end
   alias destroy? update?
-
-  def edit?
-    update?
-  end
+  alias edit? update?
 
   def scope
     Pundit.policy_scope!(user, record.class)
