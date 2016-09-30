@@ -45,13 +45,12 @@ class BlogPostsController < ApplicationController
   def user_not_authorized
     redirect_to request.referrer || blog_posts_path,
     notice: "You are not authorized to perform this action."
-
   end
 
   def set_blog_post
-      @blog_post = BlogPost.find(params[:id])
-      authorize @blog_post
-    end
+    @blog_post = BlogPost.find(params[:id])
+    authorize @blog_post
+  end
 
   def blog_post_params
     params.require(:blog_post).permit(:title, :blog_entry, :author, :user_id)
