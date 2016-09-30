@@ -1,3 +1,9 @@
+<% if notice != nil %>
+  <p id="notice" class="alert alert-success" role="alert">
+    <%= notice %>
+  </p>
+<% end %>
+
 <h1>Blog Posts</h1>
 <br />
 <div class="row">
@@ -18,7 +24,7 @@
           <% end %>
           <% if policy(blog).destroy? %>
           <%= link_to "Delete", blog, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-primary" %><br /><br />
-          <% end %><br /><br />
+          <% end %>
           <p>Has <%= pluralize(blog.comments.count, "comment") %></p>
         </div>
       </div>
