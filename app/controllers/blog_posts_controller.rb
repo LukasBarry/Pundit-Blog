@@ -40,6 +40,10 @@ class BlogPostsController < ApplicationController
       redirect_to blog_posts_path
   end
 
+  def user_posts
+    @blog_posts = policy_scope(BlogPost)
+  end
+
   private
 
   def user_not_authorized
