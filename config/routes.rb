@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :blog_posts do
     resources :comments, only: [:create, :edit, :update, :destroy]
     collection do
-      get 'user_posts', to: 'blog_posts#user_posts', as: :user
+      get 'user_posts', as: :user
     end
   end
 

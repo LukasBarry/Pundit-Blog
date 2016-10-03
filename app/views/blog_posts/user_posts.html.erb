@@ -1,0 +1,4 @@
+<% @blog_posts.each do |blog| %>
+  <h1>Title: <%= blog.title %></h1><br />
+  <h4>Author: <%= blog.user.name %></h4><br />
+<% end %>
