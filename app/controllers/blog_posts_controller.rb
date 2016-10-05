@@ -1,6 +1,8 @@
 class BlogPostsController < ApplicationController
-  before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog_post, only: [:edit, :update, :destroy]
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  after_action :verify_authorized, only: [:destroy]
+  after_action :verify_policy_scoped, only: :user_posts
 
 
   def index
@@ -8,6 +10,7 @@ class BlogPostsController < ApplicationController
   end
 
   def show
+    @blog_post = BlogPost.find(params[:id])
     @comment = Comment.new
   end
 
