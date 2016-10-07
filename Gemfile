@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'rails_db'
 gem 'devise'
 gem 'pundit'
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
 
 group :development, :test do
   gem 'byebug', platform: :mri
