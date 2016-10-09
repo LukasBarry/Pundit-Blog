@@ -2,11 +2,11 @@ class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   after_action :verify_authorized, except: [:index, :user_posts]
-  after_action :verify_policy_scoped, only: :user_posts
+  after_action :verify_policy_scoped, only: [:index, :user_posts]
 
 
   def index
-    @blog_posts = BlogPost.all
+    @blog_posts = policy_scope(BlogPost.all)
   end
 
   def show
@@ -15,6 +15,7 @@ class BlogPostsController < ApplicationController
 
   def new
     @blog_post = BlogPost.new
+    authorize @blog_post
   end
 
   def edit
@@ -43,7 +44,7 @@ class BlogPostsController < ApplicationController
   end
 
   def user_posts
-    @blog_posts = policy_scope(BlogPost)
+    @blog_posts = policy_scope(current_user.blog_posts)
   end
 
   private

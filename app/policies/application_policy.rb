@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    true
   end
 
   def show?
@@ -15,7 +15,7 @@ class ApplicationPolicy
   end
 
   def create?
-    false
+    true
   end
 
   def new?
@@ -23,6 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
+    # return false unless record.respond_to? :user
     record.user == user
   end
   alias destroy? update?
