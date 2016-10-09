@@ -6,7 +6,7 @@ class BlogPostsController < ApplicationController
 
 
   def index
-    @blog_posts = policy_scope(BlogPost.all)
+    @blog_posts = policy_scope(BlogPost.order(created_at: :desc).includes(:comments))
   end
 
   def show
