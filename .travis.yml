@@ -1,6 +1,13 @@
 language: ruby
 rvm:
-  - 2.2
+  - 2.2.5
 addons:
+  postgresql: '9.4'
   code_climate:
     repo_token: 243d2b7e38238d0ab88377dbe001e22b32c267828d5cb2f53f3ee95701ac81fe
+script:
+  - RAILS_ENV=test bundle exec rspec spec
+before_script:
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database pundit_blog' -U postgres
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
