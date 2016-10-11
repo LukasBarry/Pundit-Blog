@@ -4,7 +4,7 @@
 
 [![Test Coverage](https://codeclimate.com/github/LukasBarry/Pundit-Blog/badges/coverage.svg)](https://codeclimate.com/github/LukasBarry/Pundit-Blog/coverage)
 
-[![Issue Count](https://codeclimate.com/github/LukasBarry/Pundit-Blog/badges/issue_count.svg)](https://codeclimate.com/github/LukasBarry/Pundit-Blog)
+[![Issue Count](https://codeclimate.com/github/LukasBarry/Pundit-Blog/badges/issue_count.svg)](https://codeclimate.com/github/LukasBarry/Pundit-Blog/issues)
 
 [![Build Status](https://travis-ci.org/LukasBarry/Pundit-Blog.svg?branch=master)](https://travis-ci.org/LukasBarry/Pundit-Blog)
 
