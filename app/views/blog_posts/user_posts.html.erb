@@ -5,11 +5,11 @@
       <div class="col-md-8">
         <div class="panel panel-default">
           <div class="panel panel-header">
-            <h1>Title: <%= blog.title %></h1><br />
-            <h4>Author: <%= blog.user.name %></h4><br />
+            <h1><%= blog.title.titleize %></h1><br />
           </div>
           <div class="panel panel-body">
-            <%= blog.blog_entry %>
+            <h4>Author: <%= blog.user.name %></h4><br />
+            <h4>Entry: <br /><%= blog.blog_entry %></h4>
           </div>
           <div class="panel panel-footer">
             <%= link_to "Show", blog_post_path(blog), class: "btn btn-primary" %>
@@ -19,7 +19,7 @@
             <% if policy(blog).destroy? %>
             <%= link_to "Delete", blog, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-primary" %>
             <% end %>
-            <p>Has <%= pluralize(blog.comments.count, "comment") %></p>
+            <p>Has <%= link_to pluralize(blog.comments.count, "comment"), blog %></p>
           </div>
         </div>
       </div>

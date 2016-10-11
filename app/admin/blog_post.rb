@@ -6,8 +6,8 @@ ActiveAdmin.register BlogPost do
   # scope :other_posts
 
   action_item :comments, only: :show do
-      link_to 'Comments', admin_blog_post_comments_path(blog_post)
-    end
+    link_to 'Comments', admin_blog_post_comments_path(blog_post)
+  end
 
   filter :user, as: :check_boxes
   filter :title_cont, label: 'Title'
