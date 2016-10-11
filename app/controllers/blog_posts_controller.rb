@@ -23,6 +23,7 @@ class BlogPostsController < ApplicationController
 
   def create
     @blog_post = BlogPost.create(blog_post_params)
+    authorize @blog_post
     if @blog_post.save
       redirect_to @blog_post
     else

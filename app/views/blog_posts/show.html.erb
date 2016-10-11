@@ -1,3 +1,9 @@
+<% if notice != nil %>
+  <p id="notice" class="alert alert-success" role="alert">
+    <%= notice %>
+  </p>
+<% end %>
+
 <h1>Blog Post</h1><br />
 
 <h4>Title: <%= @blog_post.title %></h4>
