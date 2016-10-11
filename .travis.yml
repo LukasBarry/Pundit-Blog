@@ -1,5 +1,6 @@
 language: ruby
 rvm:
   - 2.2
-  - jruby
-  - rbx-2
+addons:
+  code_climate:
+    repo_token: 243d2b7e38238d0ab88377dbe001e22b32c267828d5cb2f53f3ee95701ac81fe
