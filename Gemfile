@@ -14,6 +14,8 @@ gem 'devise'
 gem 'pundit'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'slim-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri

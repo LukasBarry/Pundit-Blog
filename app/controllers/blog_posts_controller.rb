@@ -14,7 +14,7 @@ class BlogPostsController < ApplicationController
   end
 
   def new
-    @blog_post = BlogPost.new
+    @blog_post = current_user.blog_posts.new
     authorize @blog_post
   end
 
@@ -22,7 +22,7 @@ class BlogPostsController < ApplicationController
   end
 
   def create
-    @blog_post = BlogPost.create(blog_post_params)
+    @blog_post = current_user.blog_posts.create(blog_post_params)
     authorize @blog_post
     if @blog_post.save
       redirect_to @blog_post
