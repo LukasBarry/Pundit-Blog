@@ -1,0 +1,17 @@
+.row
+  - @blog_posts.each do |blog|
+    .col-md-8
+      .panel.panel-default
+        .panel.panel-header
+          h1 = blog.title.titleize
+        .panel.panel-body
+          h4 Author: #{blog.user.name}
+          h4 Entry: 
+          p = blog.blog_entry
+        .panel.panel-footer
+          = link_to 'Show', blog_post_path(blog), class: 'btn btn-primary'
+          - if policy(blog).update?
+            = link_to 'Edit', edit_blog_post_path(blog), class: 'btn btn-primary'
+          - if policy(blog).destroy?
+            = link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-primary'
+          p Has #{link_to pluralize(blog.comments.count, 'comment'), blog}
