@@ -1,5 +1,5 @@
 - if notice != nil
-  p#notice.alert.alert-success role="alert" = notice
+  p#notice.alert.alert-success role='alert' = notice
 
 h1 Blog Post
 
@@ -26,8 +26,8 @@ p = @blog_post.blog_entry
           | : 
         p = comment.comment_entry
         - if policy(comment).update?
-          = link_to "Edit Comment", edit_blog_post_comment_path(@blog_post, comment), class: "btn btn-primary"
+          = link_to 'Edit Comment', edit_blog_post_comment_path(@blog_post, comment), class: 'btn btn-primary'
         - if policy(comment).destroy?
-          = link_to 'Destroy Comment', [comment.blog_post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"
+          = link_to 'Destroy Comment', [comment.blog_post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'
 
-= link_to "Feed", blog_posts_path, class: "btn btn-primary"
+= link_to 'Feed', blog_posts_path, class: 'btn btn-primary'
