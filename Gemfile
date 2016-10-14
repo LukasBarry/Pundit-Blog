@@ -19,7 +19,6 @@ gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'rspec-rails'
 end
 
 group :development do
@@ -35,6 +34,8 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem "codeclimate-test-reporter", require: nil
+  gem 'shoulda'
+  gem 'rspec-rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
