@@ -1,5 +1,4 @@
-h2
-  | Edit #{resource_name.to_s.humanize}
+h2 Edit #{resource_name.to_s.humanize}
   
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = f.error_notification
@@ -9,8 +8,7 @@ h2
   = f.input :email
   
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: #{resource.unconfirmed_email}
+    p Currently waiting confirmation for: #{resource.unconfirmed_email}
   
   = f.input :password
   = f.input :password_confirmation
@@ -18,7 +16,6 @@ h2
   = f.button :submit
 
 h3 Cancel my account
-p
-  | Unhappy? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary"}
+p Unhappy? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary"}
 
 = link_to "Back", :back, class: "btn btn-primary"
