@@ -1,6 +1,6 @@
 = simple_form_for([@blog_post, @comment]) do |f|
     
-  = f.input :comment_entry
+  = f.input :comment_entry, input_html: { rows: 5 }
   = f.input :blog_post_id, as: :hidden
   = f.input :user_id, as: :hidden
   = f.button :submit
