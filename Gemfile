@@ -16,6 +16,7 @@ gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git'
 gem 'inherited_resources', git: 'https://github.com/josevalim/inherited_resources.git'
 gem 'slim-rails'
 gem 'simple_form'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'byebug', platform: :mri

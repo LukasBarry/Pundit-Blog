@@ -17,3 +17,4 @@
 //= require comments
 //= require welcome
 //= require cable
+//= require bootstrap-sprockets
