@@ -20,4 +20,17 @@ This is a simple blog app I am using to test several gems along with other techn
 
 * How to run the test suite
 
-* ...
+
+USAGE
+
+* fork repository
+
+* clone to desktop
+
+* <tt>bundle install</tt>
+
+* <tt>rake db:create</tt>
+
+* <tt>rake db:seed</tt>
+
+* <tt>rake db:migrate</tt>
