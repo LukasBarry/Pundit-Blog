@@ -1,6 +1,6 @@
 h1 Edit Comment
 
-= render 'form'
+= render partial: 'form', locals: { comment: @comment }
 
 br
 = link_to 'Back', :back, class: 'btn btn-primary'

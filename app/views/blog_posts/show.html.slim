@@ -10,24 +10,12 @@ h4 Author: #{@blog_post.user.name}
 h4 Entry:
 p = @blog_post.blog_entry
 
-= render 'comments/form'
+= render partial: 'comments/form', locals: { comment: @comment }
 
 .panel.panel-default
   .panel-heading
-    h4 Comments:
-    - @blog_post.comments.each do |comment|
-      .panel-body
-        p
-          strong
-            = comment.user.name
-          |  said at 
-          span.posted-at
-            = comment.created_at.strftime('%m/%d/%Y %H:%M:%S')
-          | : 
-        p = comment.comment_entry
-        - if policy(comment).update?
-          = link_to 'Edit Comment', edit_blog_post_comment_path(@blog_post, comment), class: 'btn btn-primary'
-        - if policy(comment).destroy?
-          = link_to 'Destroy Comment', [comment.blog_post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'
+    h4 Comments
+  #js-comments.panel-body
+    = render partial: 'comments/comment', collection: @blog_post.comments
 
 = link_to 'Feed', blog_posts_path, class: 'btn btn-primary'

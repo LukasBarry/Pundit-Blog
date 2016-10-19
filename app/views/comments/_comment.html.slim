@@ -1,0 +1,13 @@
+.panel-body
+  p
+    strong
+      = comment.user.username
+    |  said at 
+    span.posted-at
+      = comment.created_at.strftime('%m/%d/%Y %H:%M:%S')
+    | : 
+  p = comment.comment_entry
+  - if policy(comment).update?
+    = link_to 'Edit Comment', edit_blog_post_comment_path(comment.blog_post, comment), class: 'btn btn-primary'
+  - if policy(comment).destroy?
+    = link_to 'Destroy Comment', [comment.blog_post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'
