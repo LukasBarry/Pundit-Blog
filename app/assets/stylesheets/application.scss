@@ -7,10 +7,11 @@ $color-green: #5cb85c;
 $brand-primary: darken($color-green, 20%);
 $btn-default-color: $color-white;
 $btn-default-bg: darken($color-green, 1%);
+$color-container: rgba(255, 255, 255, .7);
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
 .container {
-  background: rgba(255, 255, 255, .7);
+  background: $color-container;
 }
