@@ -4,7 +4,7 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-This is a simple blog app I am using to test the gem Pundit on my system
+This is a simple blog app I am using to test several gems along with other techniques to advance my Rails education.
 
 * Ruby version - 2.3.0
 
@@ -16,7 +16,7 @@ This is a simple blog app I am using to test the gem Pundit on my system
 
 * Database creation - PostgreSQL Database
 
-* Database initialization - rake db:create
+* Database initialization - <tt>rake db:create</tt>
 
 * How to run the test suite
 
