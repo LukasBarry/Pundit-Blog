@@ -30,4 +30,4 @@ bundle install
 rake db:create db:migrate db:seed
 ```
 
-![Image of Associations](https://github.com/LukasBarry/blogging_around/blob/master/erd.pdf)
+[Entity Relationship Diagram](https://github.com/LukasBarry/blogging_around/blob/master/erd.pdf)
