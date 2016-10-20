@@ -1,20 +1,20 @@
 FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "email#{n}@example.com" }
-    name "User"
+    sequence(:name) { |o| "Generic#{o} Name" }
     password "password"
     password_confirmation "password"
-    username "Username"
+    sequence(:username) { |q| "Username#{q}" }
   end
 
   factory :blog_post do
-    title "Title"
-    blog_entry "This is the blog entry"
+    sequence(:title) { |r| "#{r} Title for Post" }
+    sequence(:blog_entry) { |s| "This is number #{s} in our blog entries, to show how they work" }
     user
   end
 
   factory :comment do
-    comment_entry "This is the comment entry"
+    sequence(:comment_entry) { |t| "This is the #{t} comment entry"}
     blog_post
     user
   end
