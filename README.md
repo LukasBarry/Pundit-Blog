@@ -16,10 +16,6 @@ This is a simple blog app I am using to test several gems along with other techn
 
 * Database creation - PostgreSQL Database
 
-* Database initialization - <tt>rake db:create</tt>
-
-* How to run the test suite
-
 
 USAGE
 
@@ -27,10 +23,11 @@ USAGE
 
 * clone to desktop
 
-* <tt>bundle install</tt>
+* run commands:
 
-* <tt>rake db:create</tt>
-
-* <tt>rake db:seed</tt>
-
-* <tt>rake db:migrate</tt>
+```
+  bundle install
+  rake db:create
+  rake db:seed
+  rake db:migrate
+```
