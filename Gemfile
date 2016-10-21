@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'cocoon'
 gem 'rails-erd'
+gem 'aasm'
 
 group :development, :test do
   gem 'byebug', platform: :mri

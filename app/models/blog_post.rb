@@ -1,4 +1,6 @@
 class BlogPost < ApplicationRecord
+  include AASM
+
   scope :your_posts, ->(user) { where(user: user) }
   scope :other_posts, ->(user) { where.not(user: user) }
   belongs_to :user
@@ -10,6 +12,21 @@ class BlogPost < ApplicationRecord
                                        allow_destroy: true
 
   validates :title, :blog_entry, presence: true
+
+  enum state: [:draft, :published]
+
+  aasm :column => :state, :enum => true do
+    state :draft, initial: true
+    state :published
+
+    event :drafting do
+      transitions from: :published, to: :draft
+    end
+
+    event :publishing do
+      transitions from: :draft, to: :published
+    end
+  end
 
   def validate_associated_records_for_tags
     self.tags = tags.map do |tag|

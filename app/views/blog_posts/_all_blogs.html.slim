@@ -4,19 +4,24 @@
       article.panel.panel-default
         header.panel.panel-header
           h2 = blog.title.titleize
+          p Status: #{blog.state.capitalize}
         section.panel.panel-body
           dl
             dt Author
             dd = blog.user.name
             dt Entry
             dd = blog.blog_entry
+            - blog.tags.each do |tag|
+                span.label.label-default = tag.name
         footer.panel.panel-footer
           div.btn-group role="group"
             = link_to 'Show', blog_post_path(blog), class: 'btn btn-default'
             - if policy(blog).update?
               = link_to 'Edit', edit_blog_post_path(blog), class: 'btn btn-default'
+              - if blog.state == 'draft'
+                = link_to 'Publish', { id: blog.id, action: :update, controller: :blog_posts, event: 'publish' }, method: :put, class: 'btn btn-default'
+              - else
+                = link_to 'Unpublish', { id: blog.id, action: :update, controller: :blog_posts, event: 'unpublish' }, method: :put, class: 'btn btn-default'
             - if policy(blog).destroy?
               = link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-default'
           p Has #{link_to pluralize(blog.comments.count, 'comment'), blog}
-        
-      

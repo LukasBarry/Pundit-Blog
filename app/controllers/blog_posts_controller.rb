@@ -32,8 +32,17 @@ class BlogPostsController < ApplicationController
   end
 
   def update
-    if @blog_post.update(blog_post_params)
-      redirect_to @blog_post, notice: 'Blog post was successfully updated.'
+    notice = if params[:event] == 'publish'
+               @blog_post.publishing!
+               'Blog post was successfully published.'
+             elsif params[:event] == 'unpublish'
+               @blog_post.drafting!
+               'Blog post was reverted to draft.'
+             elsif @blog_post.update(blog_post_params)
+               'Blog post was successfully updated.'
+             end
+    if notice
+      redirect_to @blog_post, notice: notice
     else
       render :edit
     end
