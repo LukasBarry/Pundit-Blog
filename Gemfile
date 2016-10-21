@@ -17,9 +17,12 @@ gem 'inherited_resources', git: 'https://github.com/josevalim/inherited_resource
 gem 'slim-rails'
 gem 'simple_form'
 gem 'bootstrap-sass'
+gem 'cocoon'
+gem 'rails-erd'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -33,7 +36,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'factory_girl_rails'
   gem "codeclimate-test-reporter", require: nil
   gem 'shoulda'
   gem 'rspec-rails'

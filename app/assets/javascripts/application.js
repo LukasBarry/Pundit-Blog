@@ -18,3 +18,4 @@
 //= require welcome
 //= require cable
 //= require bootstrap-sprockets
+//= require cocoon

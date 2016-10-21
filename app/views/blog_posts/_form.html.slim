@@ -2,4 +2,10 @@
 
   = f.input :title, hint: "Don't make your title stupid"
   = f.input :blog_entry, input_html: { rows: 10 }
+  h3 Tags
+  #tags
+    = f.simple_fields_for :tags do |tag|
+      = render 'tag_fields', f: tag
+    .links
+      = link_to_add_association 'add tag', f, :tags
   = f.button :submit

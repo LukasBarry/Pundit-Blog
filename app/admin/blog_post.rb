@@ -2,21 +2,34 @@ ActiveAdmin.register BlogPost do
   permit_params :title, :blog_entry, :created_at
 
   scope :all
-  # scope :your_posts
-  # scope :other_posts
+  scope :your_posts do |blog_posts|
+    blog_posts.your_posts(current_user)
+  end
+  scope :other_posts do |blog_posts|
+    blog_posts.other_posts(current_user)
+  end
 
   action_item :comments, only: :show do
     link_to 'Comments', admin_blog_post_comments_path(blog_post)
   end
 
-  filter :user, as: :check_boxes
+  filter :user_name_cont, label: 'User Name'
   filter :title_cont, label: 'Title'
   filter :blog_entry_cont, label: 'Blog Entry'
   filter :created_at
 
+  controller do
+    def scoped_collection
+      BlogPost.includes(:user)
+    end
+  end
+
   index do
     column :title
     column :blog_entry
+    column "User Name", sortable: 'users.name' do |blog_post|
+      blog_post.user.name
+    end
     column :created_at
     actions
   end

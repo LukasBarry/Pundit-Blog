@@ -45,7 +45,7 @@ class BlogPostsController < ApplicationController
   end
 
   def user_posts
-    @blog_posts = policy_scope(current_user.blog_posts)
+    @blog_posts = policy_scope(current_user.blog_posts).order(created_at: :desc)
   end
 
   private
@@ -61,7 +61,7 @@ class BlogPostsController < ApplicationController
   end
 
   def blog_post_params
-    params.require(:blog_post).permit(:title, :blog_entry, :author, :user_id)
+    params.require(:blog_post).permit(:title, :blog_entry, :author, :user_id, tags_attributes: [:id, :name, :_destroy])
   end
 
 end
