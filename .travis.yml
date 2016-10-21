@@ -4,7 +4,7 @@ rvm:
 addons:
   postgresql: '9.4'
   code_climate:
-    repo_token: 243d2b7e38238d0ab88377dbe001e22b32c267828d5cb2f53f3ee95701ac81fe
+    repo_token: 65ca93ea54cd4361da5a17bf80bd7d62700b9a5b5b2f23a9261cbfbd510d1372
 script:
   - RAILS_ENV=test bundle exec rspec spec
 before_script:
