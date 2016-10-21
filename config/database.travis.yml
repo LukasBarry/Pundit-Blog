@@ -1,6 +1,6 @@
 test:
   adapter: postgresql
   encoding: unicode
-  database: pundit_blog
+  database: blogging_around
   username: postgres
   pool: 5
