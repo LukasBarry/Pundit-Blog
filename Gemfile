@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 gem 'cocoon'
 gem 'rails-erd'
 gem 'aasm'
+gem 'annotate'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -39,3 +39,21 @@ class BlogPost < ApplicationRecord
     end
   end
 end
+
+# ## Schema Information
+#
+# Table name: `blog_posts`
+#
+# ### Columns
+#
+# Name              | Type               | Attributes
+# ----------------- | ------------------ | ---------------------------
+# **`author`**      | `string`           |
+# **`blog_entry`**  | `text`             |
+# **`created_at`**  | `datetime`         | `not null`
+# **`id`**          | `integer`          | `not null, primary key`
+# **`state`**       | `integer`          | `default("draft")`
+# **`title`**       | `string`           |
+# **`updated_at`**  | `datetime`         | `not null`
+# **`user_id`**     | `integer`          |
+#

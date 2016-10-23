@@ -69,6 +69,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (7.1.4)
@@ -317,6 +320,7 @@ PLATFORMS
 DEPENDENCIES
   aasm
   activeadmin!
+  annotate
   better_errors
   binding_of_caller
   bootstrap-sass
