@@ -18,4 +18,13 @@ FactoryGirl.define do
     blog_post
     user
   end
+
+  factory :tag do
+    sequence(:name) { |l| "Name#{l}"}
+  end
+
+  factory :tagging do
+    blog_post
+    tag
+  end
 end
