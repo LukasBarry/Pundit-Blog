@@ -7,7 +7,6 @@ RSpec.describe Tag, type: :model do
     end
   end
   context 'uniqueness validations' do
-    tag = FactoryGirl.build(:tag, name: nil)
-    it { expect(tag).to validate_uniqueness_of :name }
+    it { expect(subject).to validate_uniqueness_of :name }
   end
 end
