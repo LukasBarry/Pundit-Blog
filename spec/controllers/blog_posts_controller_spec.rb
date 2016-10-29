@@ -68,10 +68,13 @@ RSpec.describe BlogPostsController do
 
     describe 'PUT #update' do
       let(:blog_post) { create(:blog_post) }
-      let(:blog_post_params_hash) { attributes_for(:blog_post, title: '6 Title for Post')}
+      let(:blog_post_params_hash) {
+           attributes_for(:blog_post, title: '6 Title for Post')
+      }
 
       it 'updates the attributes' do
-        put :update, id: blog_post, blog_post: blog_post_params_hash
+        put :update, id: blog_post,
+                     blog_post: blog_post_params_hash
         blog_post.reload
         expect(blog_post.title).to eql('6 Title for Post')
       end
