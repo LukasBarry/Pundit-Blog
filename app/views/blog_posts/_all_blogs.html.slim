@@ -25,3 +25,9 @@
             - if policy(blog).destroy?
               = link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-default'
           p Has #{link_to pluralize(blog.comments.count, 'comment'), blog}
+          .panel.panel-default
+            .panel-heading
+              h4 Comments:
+            - if blog.comments.exists?
+              #js-comments.panel-body
+                = render partial: 'comments/comment', collection: blog.comments

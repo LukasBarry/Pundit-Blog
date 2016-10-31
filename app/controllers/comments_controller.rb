@@ -13,7 +13,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to blog_posts_path }
         format.js { render :new }
       end
-
     end
   end
 
