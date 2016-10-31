@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021151721) do
+ActiveRecord::Schema.define(version: 20161031174920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,15 @@ ActiveRecord::Schema.define(version: 20161021151721) do
   create_table "blog_posts", force: :cascade do |t|
     t.string   "title"
     t.text     "blog_entry"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "author"
     t.integer  "user_id"
-    t.integer  "state",      default: 0
+    t.integer  "state",              default: 0
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "comments", force: :cascade do |t|

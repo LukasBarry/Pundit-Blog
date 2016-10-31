@@ -11,6 +11,8 @@
             dd = blog.user.name
             dt Entry
             dd = blog.blog_entry
+            - if blog.photo_file_name != nil
+              = image_tag blog.photo.url(:medium), class: 'img-responsive'
             - blog.tags.each do |tag|
                 span.label.label-default = tag.name
         footer.panel.panel-footer

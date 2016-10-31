@@ -1,6 +1,11 @@
 class BlogPost < ApplicationRecord
   include AASM
 
+  has_attached_file :photo, :styles => {
+    :medium => "300x300>", :thumb => "100x100>"
+    }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+
   scope :your_posts, ->(user) { where(user: user) }
   scope :other_posts, ->(user) { where.not(user: user) }
   belongs_to :user
@@ -46,14 +51,18 @@ end
 #
 # ### Columns
 #
-# Name              | Type               | Attributes
-# ----------------- | ------------------ | ---------------------------
-# **`author`**      | `string`           |
-# **`blog_entry`**  | `text`             |
-# **`created_at`**  | `datetime`         | `not null`
-# **`id`**          | `integer`          | `not null, primary key`
-# **`state`**       | `integer`          | `default("draft")`
-# **`title`**       | `string`           |
-# **`updated_at`**  | `datetime`         | `not null`
-# **`user_id`**     | `integer`          |
+# Name                      | Type               | Attributes
+# ------------------------- | ------------------ | ---------------------------
+# **`author`**              | `string`           |
+# **`blog_entry`**          | `text`             |
+# **`created_at`**          | `datetime`         | `not null`
+# **`id`**                  | `integer`          | `not null, primary key`
+# **`photo_content_type`**  | `string`           |
+# **`photo_file_name`**     | `string`           |
+# **`photo_file_size`**     | `integer`          |
+# **`photo_updated_at`**    | `datetime`         |
+# **`state`**               | `integer`          | `default("draft")`
+# **`title`**               | `string`           |
+# **`updated_at`**          | `datetime`         | `not null`
+# **`user_id`**             | `integer`          |
 #

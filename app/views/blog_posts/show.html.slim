@@ -12,6 +12,9 @@ h4 Author: #{@blog_post.user.name}
 h4 Entry:
 p = @blog_post.blog_entry
 
+- if @blog_post.photo_file_name != nil
+  = image_tag @blog_post.photo.url(:medium), class: 'img-responsive'
+
 h4 Tags:
 - @blog_post.tags.each do |tag|
     span.label.label-default = tag.name

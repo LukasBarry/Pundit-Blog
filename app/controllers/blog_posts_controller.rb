@@ -71,7 +71,7 @@ class BlogPostsController < ApplicationController
   end
 
   def blog_post_params
-    params.require(:blog_post).permit(:title, :blog_entry, :author, :user_id, tags_attributes: [:id, :name, :_destroy])
+    params.require(:blog_post).permit(:title, :blog_entry, :author, :user_id, :photo, tags_attributes: [:id, :name, :_destroy])
   end
 
 end
