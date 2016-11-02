@@ -1,8 +1,8 @@
 .row
-  .col-md-8
+  .col-md-10.col-md-offset-1
     - blog_posts.each do |blog|
       article.panel.panel-default
-        header.panel.panel-header
+        header.panel.panel-header#headsplash
           h2 = blog.title.titleize
           p Status: #{blog.state.capitalize}
         section.panel.panel-body
@@ -15,7 +15,7 @@
               = image_tag blog.photo.url(:medium), class: 'img-responsive'
             - blog.tags.each do |tag|
                 span.label.label-default = tag.name
-        footer.panel.panel-footer
+        footer.panel.panel-footer#backsplash
           div.btn-group role="group"
             = link_to 'Show', blog_post_path(blog), class: 'btn btn-default'
             - if policy(blog).update?

@@ -1,6 +1,6 @@
 - if notice != nil
   p#notice.alert.alert-success role='alert' = notice
-h1 All Posts
+h1.title All Posts
 
 = render partial: 'all_blogs', locals: {blog_posts: @blog_posts}
 
