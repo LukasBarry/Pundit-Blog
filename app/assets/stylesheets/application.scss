@@ -4,6 +4,9 @@ $brand-primary: darken($color-green, 20%);
 $btn-default-color: $color-white;
 $btn-default-bg: darken($color-green, 1%);
 $color-container: rgba(255, 255, 255, .7);
+$body-background: #636564;
+$backsplash: #d4dfc7;
+$headsplash: #a2c3a4;
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
@@ -13,7 +16,7 @@ $color-container: rgba(255, 255, 255, .7);
 }
 
 body {
-  background-color: #636564;
+  background-color: $body-background;
 }
 
 .title {
@@ -21,9 +24,9 @@ body {
 }
 
 #backsplash {
-  background-color: #D4DFC7;
+  background-color: $backsplash;
 }
 
 #headsplash {
-  background-color: #A2C3A4;
+  background-color: $headsplash;
 }
