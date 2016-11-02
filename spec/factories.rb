@@ -5,6 +5,7 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
     sequence(:username) { |q| "Username#{q}" }
+    poster true
   end
 
   factory :blog_post do
