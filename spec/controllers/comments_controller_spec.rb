@@ -23,10 +23,13 @@ RSpec.describe CommentsController do
       let(:blog_post) { create(:blog_post) }
       it 'creates a new comment' do
         expect {
-          post :create, blog_post_id: blog_post, comment: attributes_for(:comment)
+          post :create,
+          blog_post_id: blog_post,
+          comment: attributes_for(:comment)
         }.to change(Comment, :count).by(1)
       end
       it 'redirects to the blog post' do
+        post :create, blog_post_id: blog_post, comment: attributes_for(:comment)
         expect(response).to redirect_to(blog_post_path(blog_post))
       end
     end

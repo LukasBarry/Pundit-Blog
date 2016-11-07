@@ -40,6 +40,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'simplecov'
   gem "codeclimate-test-reporter", require: nil
   gem 'shoulda'
   gem 'rspec-rails'

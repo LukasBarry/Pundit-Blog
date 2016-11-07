@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to blog_post_path(@comment.blog_post_id), notice: "Comment was successfully created" }
         format.js { render :create }
       else
-        format.html { redirect_to blog_posts_path }
+        format.html { redirect_to blog_post_path(@comment.blog_post_id) }
         format.js { render :new }
       end
     end
