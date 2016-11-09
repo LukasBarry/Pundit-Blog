@@ -21,9 +21,9 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to blog_post_path( @comment.blog_post_id), notice: 'Comment was successfully updated.'
+      redirect_to blog_post_path(@comment.blog_post_id), notice: 'Comment was successfully updated.'
     else
-      redirect_to blog_post_path
+      redirect_to blog_post_path(@comment.blog_post_id)
     end
   end
 

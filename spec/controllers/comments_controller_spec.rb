@@ -21,15 +21,23 @@ RSpec.describe CommentsController do
 
     describe 'POST #create' do
       let(:blog_post) { create(:blog_post) }
+      let(:valid_attributes) { attributes_for(:comment) }
+      let(:invalid_attributes) { valid_attributes.merge(comment_entry: '') }
       it 'creates a new comment' do
         expect {
           post :create,
           blog_post_id: blog_post,
-          comment: attributes_for(:comment)
+          comment: valid_attributes
         }.to change(Comment, :count).by(1)
       end
       it 'redirects to the blog post' do
-        post :create, blog_post_id: blog_post, comment: attributes_for(:comment)
+        post :create, blog_post_id: blog_post,
+                      comment: valid_attributes
+        expect(response).to redirect_to(blog_post_path(blog_post))
+      end
+      it 'fails and redirects to the blog post' do
+        post :create, blog_post_id: blog_post,
+                      comment: invalid_attributes
         expect(response).to redirect_to(blog_post_path(blog_post))
       end
     end
@@ -44,19 +52,28 @@ RSpec.describe CommentsController do
 
     describe 'PUT #update' do
       let(:comment) { create(:comment, user: user) }
-      let(:comment_params_hash) { attributes_for(:comment, comment_entry: 'switching out a comment entry') }
+      let(:valid_attributes) { attributes_for(:comment, comment_entry: 'switching out a comment entry') }
+      let(:invalid_attributes) {
+        attributes_for(:comment, comment_entry: '')
+      }
 
       it 'updates the attributes' do
         put :update, id: comment,
                      blog_post_id: comment.blog_post,
-                     comment: comment_params_hash
+                     comment: valid_attributes
         comment.reload
         expect(comment.comment_entry).to eql("switching out a comment entry")
       end
       it 'redirects to show' do
         put :update, id: comment,
                      blog_post_id: comment.blog_post,
-                     comment: comment_params_hash
+                     comment: valid_attributes
+        expect(response).to redirect_to comment.blog_post
+      end
+      it 'fails and redirects to show' do
+        put :update, id: comment,
+                  blog_post_id: comment.blog_post,
+                  comment: invalid_attributes
         expect(response).to redirect_to comment.blog_post
       end
     end
