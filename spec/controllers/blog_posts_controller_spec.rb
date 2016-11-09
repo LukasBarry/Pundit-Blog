@@ -32,11 +32,16 @@ RSpec.describe BlogPostsController do
     end
 
     describe 'POST #create' do
+      let(:invalid_attributes) { attributes_for(:blog_post).merge(blog_entry: '') }
       it 'creates a new blog post' do
         expect {
           post :create, blog_post: attributes_for(:blog_post)
         }.to change(BlogPost, :count).by(1)
         expect(response).to redirect_to(blog_post_path(assigns[:blog_post]))
+      end
+      it 'fails and renders new' do
+        post :create, blog_post: invalid_attributes
+        expect(response).to render_template(:new)
       end
     end
 
@@ -71,12 +76,11 @@ RSpec.describe BlogPostsController do
       let(:blog_post_params_hash) {
            attributes_for(:blog_post, title: '6 Title for Post')
       }
-
       it 'updates the attributes' do
         put :update, id: blog_post,
                      blog_post: blog_post_params_hash
         blog_post.reload
-        expect(blog_post.title).to eql('6 Title for Post')
+        expect(blog_post.title).to eql('7 Title for Post')
       end
       it 'redirects to show' do
         put :update, id: blog_post

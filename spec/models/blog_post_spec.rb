@@ -20,4 +20,8 @@ RSpec.describe BlogPost do
       expect(entry).to_not be_valid
     end
   end
+
+  describe '.validate_associated_records_for_tags' do
+    
+  end
 end
