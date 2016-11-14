@@ -1,0 +1,34 @@
+article.panel.panel-default
+  header.actions.panel.panel-footer.backsplash
+    div.btn-group role="group"
+      = link_to 'Show', blog_post_path(blog_post), class: 'btn btn-default'
+      - if policy(blog_post).update?
+        = link_to 'Edit', edit_blog_post_path(blog_post), class: 'btn btn-default'
+        - if blog_post.state == 'draft'
+          = link_to 'Publish', { id: blog_post.id, action: :update, controller: :blog_posts, event: 'publish' }, method: :put, class: 'btn btn-default'
+        - else
+          = link_to 'Unpublish', { id: blog_post.id, action: :update, controller: :blog_posts, event: 'unpublish' }, method: :put, class: 'btn btn-default'
+      - if policy(blog_post).destroy?
+        = link_to 'Delete', blog_post, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-default'
+  - cache blog_post do
+    header.panel.panel-header.headsplash
+      h2 = blog_post.title.titleize
+      p Status: #{blog_post.state.capitalize}
+    section.panel.panel-body
+      dl
+        dt Author
+        dd = blog_post.user.name
+        dt Entry
+        dd = blog_post.blog_entry
+        - if blog_post.photo_file_name != nil
+          = image_tag blog_post.photo.url(:medium), class: 'img-responsive'
+        - blog_post.tags.each do |tag|
+            span.label.label-default = tag.name
+    footer.panel.panel-footer.backsplash
+      p Has #{link_to pluralize(blog_post.comments.count, 'comment'), blog_post}
+      .panel.panel-default
+        .panel-heading
+          h4 Comments:
+        - if blog_post.comments.exists?
+          #js-comments.panel-body
+            = render partial: 'comments/comment', collection: blog_post.comments

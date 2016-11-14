@@ -23,6 +23,7 @@ gem 'aasm'
 gem 'annotate'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+gem 'redis-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
