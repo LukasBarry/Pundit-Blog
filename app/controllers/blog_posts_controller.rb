@@ -26,6 +26,7 @@ class BlogPostsController < ApplicationController
     @blog_post = current_user.blog_posts.create(blog_post_params)
     authorize @blog_post
     if @blog_post.save
+      ConvertMarkdownJob.perform_now(@blog_post)
       redirect_to @blog_post
     else
       render :new
@@ -43,6 +44,7 @@ class BlogPostsController < ApplicationController
                'Blog post was successfully updated.'
              end
     if notice
+      ConvertMarkdownJob.perform_now(@blog_post)
       redirect_to @blog_post, notice: notice
     else
       render :edit

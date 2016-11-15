@@ -19,7 +19,10 @@ article.panel.panel-default
         dt Author
         dd = blog_post.user.name
         dt Entry
-        dd = blog_post.blog_entry
+        -if blog_post.blog_entry_html.present?
+          dd = blog_post.blog_entry_html.html_safe
+        - else
+          dd = blog_post.blog_entry
         - if blog_post.photo_file_name != nil
           = image_tag blog_post.photo.url(:medium), class: 'img-responsive'
         - blog_post.tags.each do |tag|

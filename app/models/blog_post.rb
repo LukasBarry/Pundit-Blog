@@ -55,6 +55,7 @@ end
 # ------------------------- | ------------------ | ---------------------------
 # **`author`**              | `string`           |
 # **`blog_entry`**          | `text`             |
+# **`blog_entry_html`**     | `text`             |
 # **`created_at`**          | `datetime`         | `not null`
 # **`id`**                  | `integer`          | `not null, primary key`
 # **`photo_content_type`**  | `string`           |

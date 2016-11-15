@@ -24,6 +24,8 @@ gem 'annotate'
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 gem 'redis-rails'
+gem 'sidekiq'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug', platform: :mri
