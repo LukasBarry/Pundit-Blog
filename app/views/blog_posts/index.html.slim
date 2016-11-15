@@ -2,6 +2,6 @@
   p#notice.alert.alert-success role='alert' = notice
 h1.title All Posts
 
-= render partial: 'all_blogs', locals: {blog_posts: @blog_posts}
+= render partial: 'all_blogs', locals: { blog_posts: @blog_posts }
 
 = link_to 'Create New Blog Post', new_blog_post_path, class: 'btn btn-primary btn-lg'
