@@ -272,6 +272,10 @@ GEM
       redis (>= 2.2)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -288,6 +292,9 @@ GEM
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
+    rspec-sidekiq (2.2.0)
+      rspec (~> 3.0, >= 3.0.0)
+      sidekiq (>= 2.4.0)
     rspec-support (3.5.0)
     ruby-graphviz (1.2.2)
     sass (3.4.22)
@@ -395,6 +402,7 @@ DEPENDENCIES
   redcarpet
   redis-rails
   rspec-rails
+  rspec-sidekiq
   sass-rails (~> 5.0)
   shoulda
   sidekiq

@@ -48,6 +48,7 @@ group :test do
   gem 'shoulda'
   gem 'rspec-rails'
   gem 'rails-controller-testing'
+  gem 'rspec-sidekiq'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
